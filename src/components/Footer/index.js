@@ -42,7 +42,7 @@ const Footer = () => {
           mt={2}
           spacing={1}
         >
-           <MailIcon></MailIcon> <span> Contacto: <a href="mailto:valeria.pjaimes@gmail.com" rel="noreferrer">valeria.pjaimes@gmail.com</a></span>
+           <MailIcon></MailIcon> <span> Contacto: <a target='_blank' href="mailto:valeria.pjaimes@gmail.com" rel="noreferrer">valeria.pjaimes@gmail.com</a></span>
         </Stack>
         <Stack
           alignItems="flex-start"
@@ -62,7 +62,7 @@ const Footer = () => {
           mt={2}
           spacing={1}
         >
-          <WhatsAppIcon></WhatsAppIcon> <span> WhatsApp: <a href="https://wa.me/525585761173" rel="noreferrer">Escribir un mensaje en WhatsApp</a></span>
+          <WhatsAppIcon></WhatsAppIcon> <span> WhatsApp: <a target='_blank' href="https://wa.me/525585761173" rel="noreferrer">Escribir un mensaje en WhatsApp</a></span>
         </Stack>
       </Container>
     </Stack>
