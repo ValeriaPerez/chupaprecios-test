@@ -7,7 +7,6 @@ import history from './utils/history';
 
 function App() {
   const { cart } = useCart();
-  console.log('carrito', cart);
   return (
     <Router history={history}>
       <Navbar cart={cart} isCart={cart.length} />

@@ -4,7 +4,7 @@ import ImageListItem from '@mui/material/ImageListItem';
 import ImageListItemBar from '@mui/material/ImageListItemBar';
 import Skeleton from '@mui/material/Skeleton';
 
-export default function BasicCardSkeleton() {
+export default function ProductCardSkeleton() {
   const [arraySkeleton] = useState([1,2,3,4,5,6,8,9,10]);
 
   return (

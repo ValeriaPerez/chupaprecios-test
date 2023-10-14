@@ -5,7 +5,7 @@ import { useGetProducts } from '../api/products';
 import { useCart } from '../hooks';
 
 import ProductCard from '../components/ProductCard';
-import CardSkeleton from '../components/CardSkeleton';
+import ProductCardSkeleton from '../components/ProductCardSkeleton';
 import FilterStore from '../components/Filter';
 import Search from '../components/Search';
 import Modal from '../components/Modal';
@@ -55,7 +55,7 @@ const Home = () => {
           <Typography variant='h5'>
             STORE - {store}
           </Typography>
-          {productsLoading && <CardSkeleton />}
+          {productsLoading && <ProductCardSkeleton />}
           {!productsLoading && !productsEmpty && (
             <ImageList cols={3} rowHeight={280} gap={10} flexWrap='wrap'>
               {products?.map((item, index) => {

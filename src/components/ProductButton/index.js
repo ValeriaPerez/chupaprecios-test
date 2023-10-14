@@ -1,5 +1,5 @@
 const ProductButton = ({
-  text = 'Agregar',
+  text = 'Agregar al carrito',
   onClick,
 }) => {
   return (
