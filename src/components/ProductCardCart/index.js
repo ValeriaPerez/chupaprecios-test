@@ -20,15 +20,15 @@ const ProductCardCart = ({productCart}) => {
           primary={productCart?.asin}
           secondary={
             <React.Fragment>
+              Cantidad: {productCart?.count}{' '}
               <Typography
                 sx={{ display: 'inline' }}
                 component='span'
                 variant='body2'
                 color='text.primary'
               >
-                ${productCart?.price} {' '}
+               Precio: ${productCart?.price}
               </Typography>
-              - {productCart?.asin}
             </React.Fragment>
           }
         />

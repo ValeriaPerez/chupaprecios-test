@@ -1,5 +1,6 @@
 
 import * as React from 'react';
+import PropTypes from 'prop-types';
 import {
   ImageListItem,
   Chip,
@@ -11,10 +12,15 @@ import IconButton from '@mui/material/IconButton';
 import InfoIcon from '@mui/icons-material/Info';
 import ProductButton from '../ProductButton';
 
-export default function ProductCard({
+function ProductCard({
   handleOpen,
   onClickCart,
-  data
+  data,
+  description,
+  name,
+  price,
+  bestSeller,
+  image
 }) {
   return (
     <div>
@@ -25,22 +31,22 @@ export default function ProductCard({
             top: '10px',
             right: '10px',
           }}
-          label={data.bestSeller && 'Recomendado'}
-          color={data.bestSeller && 'success'}
+          label={bestSeller && 'Recomendado'}
+          color={bestSeller && 'success'}
           variant='filled' />
         <img
           className='imageProductCard'
-          src={`${data.thumbnail}?w=250&h=300&fit=crop&auto=format`}
-          alt={data.title}
+          src={`${image}?w=250&h=300&fit=crop&auto=format`}
+          alt={description}
           loading='lazy'
         />
         <ImageListItemBar
-          title={data.title}
+          title={description}
           actionIcon={
             <IconButton
               onClick={handleOpen}
               sx={{ color: 'rgba(255, 255, 255, 0.54)' }}
-              aria-label={`info about ${data.title}`}
+              aria-label={`info about ${description}`}
             >
               <InfoIcon />
             </IconButton>
@@ -57,13 +63,26 @@ export default function ProductCard({
         sx={{ padding: '0 1em' }}
       >
         <Typography gutterBottom sx={{ fontSize: 12 }} variant='p' component='p' color='text.secondary'>
-          <strong>{data?.asin}</strong>
+          <strong>{name}</strong>
         </Typography>
         <Typography gutterBottom sx={{ fontSize: 18, fontWeight: '700' }} variant='p' component='p' color='text.secondary'>
-          <strong>${data?.price}</strong>
+          <strong>${price}</strong>
         </Typography>
         <ProductButton onClick={onClickCart} />
       </Stack>
     </div>
   );
 }
+
+ProductCard.propTypes = {
+  handleOpen: PropTypes.func,
+  onClickCart: PropTypes.func,
+  data: PropTypes.object,
+  name: PropTypes.string,
+  description: PropTypes.string,
+  image: PropTypes.string,
+  bestSeller: PropTypes.bool,
+  price: PropTypes.number,
+}
+
+export default ProductCard

@@ -29,13 +29,11 @@ axiosInstance.interceptors.response.use(
 export default axiosInstance;
 
 // ----------------------------------------------------------------------
-
 export const fetcher = async (args) => {
   let requestOptions = {
     method: 'GET',
     headers: {
       Authorization: `Bearer ${token}`,
-      Cookie: 'PHPSESSID=0e2ba61cc0e209a3178786f4ea239ccc',
       'Access-Control-Allow-Origin': '*',
       'Content-Type': 'application/json',
     },
@@ -43,9 +41,11 @@ export const fetcher = async (args) => {
   };
   const [url] = Array.isArray(args) ? args : [args];
 
-  const res = await axiosInstance.get(url, requestOptions);
+  if (token) {
+    const res = await axiosInstance.get(url, requestOptions);
 
-  return res.data;
+    return res.data;
+  }
 };
 
 // ----------------------------------------------------------------------

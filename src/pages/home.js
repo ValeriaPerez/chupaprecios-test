@@ -57,14 +57,18 @@ const Home = () => {
           </Typography>
           {productsLoading && <ProductCardSkeleton />}
           {!productsLoading && !productsEmpty && (
-            <ImageList cols={3} rowHeight={280} gap={10} flexWrap='wrap'>
+            <ImageList cols={3} rowHeight={280} gap={10}>
               {products?.map((item, index) => {
                 return (
                   <ProductCard
-                    data={item}
+                    bestSeller={item.bestSeller}
+                    description={item.title}
                     handleOpen={() => handleOpen(item)}
+                    image={item.thumbnail}
                     key={index}
+                    name={item.asin}
                     onClickCart={() => onClickCart(item)}
+                    price={item.price}
                   />
                 );
               })}

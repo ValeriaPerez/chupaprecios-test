@@ -61,9 +61,17 @@ const Navbar = ({
             return <ProductCardCart key={item} productCart={itemCart} />
           })}
           {isCart === 0 &&
-            <Typography sx={{ fontSize: 14 }} variant='h7' color='black' gutterBottom>
-              No hay productos en tu carrito
-            </Typography>
+            <Stack
+              alignItems='center'
+              direction='row'
+              justifyContent='space-between'
+              spacing={2}
+              sx={{ padding: '1em' }}
+            >
+              <Typography sx={{ fontSize: 14 }} variant='h7' color='black' gutterBottom>
+                Aún no hay productos en tu carrito
+              </Typography>
+            </Stack>
           }
         </List>
       </Drawer>

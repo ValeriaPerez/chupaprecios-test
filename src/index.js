@@ -7,11 +7,11 @@ import reportWebVitals from './reportWebVitals';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <React.StrictMode>
-    <CartProvider>
+  <CartProvider>
+    <React.StrictMode>
       <App />
-    </CartProvider>
-  </React.StrictMode>
+    </React.StrictMode>
+  </CartProvider>
 );
 
 // If you want to start measuring performance in your app, pass a function
