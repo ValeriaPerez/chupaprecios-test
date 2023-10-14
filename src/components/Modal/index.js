@@ -26,9 +26,10 @@ const style = {
 };
 
 export default function NestedModal({
-  open,
-  handleClose,
   data,
+  handleClose,
+  onClickCart,
+  open,
 }) {
   return (
     <Modal
@@ -68,7 +69,7 @@ export default function NestedModal({
               {data?.amazonChoice ? 'Amazon Choice' : 'No disposible para Amazon Choice'}
             </Typography>
             <a target='_blank' href={data?.url} rel='noreferrer'>ver en tienda</a>
-            <ProductButton />
+            <ProductButton onClick={onClickCart}/>
           </CardContent>
         </CardActionArea>
       </Card>

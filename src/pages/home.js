@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Stack, Container, Grid, ImageList, Typography } from '@mui/material';
 
 import { useGetProducts } from '../api/products';
+import { useCart } from '../hooks';
 
 import ProductCard from '../components/ProductCard';
 import CardSkeleton from '../components/CardSkeleton';
@@ -12,6 +13,7 @@ import Empty from '../components/Empty';
 import Pagination from '../components/Pagination';
 
 const Home = () => {
+  const { setIsCart } = useCart();
   const [detailModal, setDetailModal] = useState();
   const [open, setOpen] = useState(false);
   const [store, setStore] = useState('amazon');
@@ -27,7 +29,7 @@ const Home = () => {
     setOpen(false);
   };
   const onClickCart = (data) => {
-    console.log(data);
+    setIsCart(data);
   };
   const handleChangePage = (action) => {
     if (action === 'next') {
@@ -79,7 +81,12 @@ const Home = () => {
           setPage={setPage}
         />
       </Container>
-      <Modal data={detailModal} open={open} handleClose={handleClose} />
+      <Modal
+        data={detailModal}
+        handleClose={handleClose}
+        onClickCart={() => onClickCart(detailModal)}
+        open={open}
+      />
     </div>
   );
 };
